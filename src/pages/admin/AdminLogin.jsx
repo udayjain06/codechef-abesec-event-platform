@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
-import { AlertCircle, ArrowLeft } from "lucide-react";
+import { AlertCircle, ArrowLeft, Info } from "lucide-react";
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 import { TextInput } from "../../components/FormControls";
@@ -109,6 +109,27 @@ export default function AdminLogin() {
                 {submitting ? "Logging in..." : "Login"}
               </Button>
             </form>
+
+            {/* Demo / Evaluator Credentials */}
+            <div className="mt-6 rounded-xl border border-sky-400/30 bg-sky-400/5 p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <Info className="h-4 w-4 shrink-0 text-sky-400" aria-hidden="true" />
+                <span className="text-xs font-bold uppercase tracking-widest text-sky-300">Demo / Evaluator Credentials</span>
+              </div>
+              <div className="space-y-1 text-sm">
+                <p className="text-ink-300">
+                  <span className="font-medium text-ink-100">Email:</span>{" "}
+                  <span className="font-mono text-sky-200 select-all">codechef.evaluator.demo@gmail.com</span>
+                </p>
+                <p className="text-ink-300">
+                  <span className="font-medium text-ink-100">Password:</span>{" "}
+                  <span className="font-mono text-sky-200 select-all">codechef</span>
+                </p>
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-ink-400">
+                Use these demo credentials to explore the admin dashboard and event management features.
+              </p>
+            </div>
           </div>
         </div>
       </div>
