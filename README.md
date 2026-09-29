@@ -14,6 +14,16 @@ Official Instagram: <https://www.instagram.com/abesec.codechef/>
 - Add to Google Calendar link
 
 **Admins**
+
+## 🔐 Admin / Evaluator Access
+
+**👉 [Admin Login](https://codechef-abesec-event-platform.vercel.app/admin/login)**
+
+### Demo Evaluator Account
+
+**Email:** `codechef.evaluator.demo@gmail.com`  
+**Password:** `codechef`
+
 - Supabase Auth login, protected routes
 - Dashboard with live stats (total / upcoming events, total registrations, categories in use), upcoming events and recent registrations
 - Create, edit and delete events (custom confirmation modal), image upload to Supabase Storage or paste a link, one featured event at a time
