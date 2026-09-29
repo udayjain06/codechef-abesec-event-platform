@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-ink-300 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>&copy; 2026 CodeChef ABESEC Chapter</p>
           <Link to="/admin/login" className="rounded text-ink-500 hover:text-ink-300">
-            Organizer Login
+            Admin Login
           </Link>
         </div>
       </div>
