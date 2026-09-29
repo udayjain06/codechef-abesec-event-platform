@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Design tokens: warm charcoal surfaces + one ember-orange accent. */
+@theme {
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-ink-950: #0d0a08;
+  --color-ink-900: #15110e;
+  --color-ink-800: #1e1813;
+  --color-ink-700: #2d251d;
+  --color-ink-600: #443a30;
+  --color-ink-500: #7a6e61;
+  --color-ink-300: #b0a496;
+  --color-ink-100: #f1e9de;
+
+  --color-ember-300: #ffb088;
+  --color-ember-400: #ff8a4a;
+  --color-ember-500: #ff6b1f;
+  --color-ember-600: #e5540c;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-ink-950);
+    color: var(--color-ink-100);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip; /* clip (not hidden) keeps position: sticky working */
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ember-400);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: rgba(255, 107, 31, 0.35);
+  }
+}
+
+/* Faint engineering-paper grid used behind the hero and image placeholders */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(241, 233, 222, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(241, 233, 222, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.hero-glow {
+  background: radial-gradient(60% 55% at 75% 0%, rgba(255, 107, 31, 0.16), transparent 70%);
+}
+
+/* The one orchestrated motion moment: terminal lines print in sequence */
+@keyframes term-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.term-line {
+  opacity: 0;
+  animation: term-in 0.35s ease-out forwards;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+/* Motion that answers a user action: modal + toast */
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-pop {
+  animation: pop 0.18s ease-out;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-toast {
+  animation: toast-in 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
